@@ -128,12 +128,12 @@ if(document.getElementById('revenueForm')) {
             totalAmount += revenueData[i].revenue;
             tableRows += '<tr>';
             tableRows += '<td>' + revenueData[i].cropName + '</td>';
-            tableRows += '<td>₹' + revenueData[i].revenue + '</td>';
+            tableRows += '<td>&#8377;' + revenueData[i].revenue + '</td>';
             tableRows += '</tr>';
         }
 
         document.querySelector('#revenueTable tbody').innerHTML = tableRows;
-        document.getElementById('totalRevAmount').textContent = '₹' + totalAmount;
+        document.getElementById('totalRevAmount').innerHTML = '&#8377;' + totalAmount;
         document.getElementById('revenueResult').style.display = 'block';
     };
 }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Farm Stock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#10b981" stroke="none">
+                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22l1-2.3A13.89,13.89 0 0,0 20.3,5.13C20.3,5.13 18.66,6.31 17,8M15,10.66C12,12.55 10,15.7 10,18.84l-1.39-3.23C9.37,13.25 11.66,11.23 15,10.66Z"/>
+            </svg>
+            <div>
+                <h2>FarmStock</h2>
+                <p>Inventory Tracker</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">MENU</p>
+            <a href="index.html" class="nav-link active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>
+                Dashboard Overview
+            </a>
+            <a href="add_crops.html" class="nav-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 22l10-10"></path></svg>
+                Add Crops Details
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                FarmStock &copy; 2026
+            </p>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">View your current stock and revenue reports</p>
+            </div>
+        </div>
+
+        <div class="content-area">
+
+            <!-- Current Stock -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; color: #10b981;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> Current Stock</h2>
+                </div>
+                <div class="card-body">
+                    <table id="stockTable">
+                        <thead>
+                            <tr>
+                                <th>Crop</th>
+                                <th>Harvested (kg)</th>
+                                <th>Sold (kg)</th>
+                                <th>Current Stock (kg)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loaded by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Revenue Report -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; color: #10b981;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Revenue Report</h2>
+                </div>
+                <div class="card-body">
+                    <form id="revenueForm" class="simple-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Select Crop</label>
+                                <select id="revCropSelect">
+                                    <option value="all">All Crops</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>From Date</label>
+                                <input type="date" id="revFromDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>To Date</label>
+                                <input type="date" id="revToDate" required>
+                            </div>
+                        </div>
+                        <button type="submit">View Revenue</button>
+                    </form>
+
+                    <div id="revenueResult" style="display:none;">
+                        <div class="revenue-total-box">
+                            <span>Total Revenue</span>
+                            <strong id="totalRevAmount">₹0</strong>
+                        </div>
+                        <table id="revenueTable">
+                            <thead>
+                                <tr>
+                                    <th>Crop</th>
+                                    <th>Revenue (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
